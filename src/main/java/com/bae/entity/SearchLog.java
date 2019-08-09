@@ -53,7 +53,7 @@ public class SearchLog {
 		return searchTerm;
 	}
 
-	public void setSearchResult(String searchTerm) {
+	public void setSearchTerm(String searchTerm) {
 		this.searchTerm = searchTerm;
 	}
 

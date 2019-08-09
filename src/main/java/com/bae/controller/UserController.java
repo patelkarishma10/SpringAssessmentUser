@@ -36,7 +36,7 @@ public class UserController {
 	}
 
 	@GetMapping("/search/{id}/{searchTerm}")
-	public String getAUser(@PathVariable("id") Long id, @PathVariable("searchTerm") String searchTerm) {
+	public String search(@PathVariable("id") Long id, @PathVariable("searchTerm") String searchTerm) {
 		return service.search(id, searchTerm);
 	}
 
