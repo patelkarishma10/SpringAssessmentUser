@@ -1,5 +1,7 @@
 package com.bae.entity;
 
+import java.util.Date;
+
 public class SearchLog {
 
 	private long id;
@@ -9,16 +11,18 @@ public class SearchLog {
 	private int memberNumber;
 
 	private String searchTerm;
+	private Date date;
 
 	public SearchLog() {
 
 	}
 
-	public SearchLog(User user, String searchTerm) {
+	public SearchLog(User user, String searchTerm, Date date) {
 		this.id = user.getId();
 		this.name = user.getName();
 		this.memberNumber = user.getMemberNumber();
 		this.searchTerm = searchTerm;
+		this.date = date;
 	}
 
 	public long getId() {
@@ -51,6 +55,14 @@ public class SearchLog {
 
 	public void setSearchResult(String searchTerm) {
 		this.searchTerm = searchTerm;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
 	}
 
 }

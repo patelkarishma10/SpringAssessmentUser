@@ -1,5 +1,6 @@
 package com.bae.logic;
 
+import java.util.Date;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,8 +47,8 @@ public class UserServiceImpl implements UserService {
 					HttpMethod.GET, null, String.class);
 			String searchResult = search.getBody();
 			User user = userOp.get();
-
-			sendToQueue(user, searchTerm);
+			Date date = new Date();
+			sendToQueue(user, searchTerm, date);
 			return searchResult;
 		} else {
 			return "{\"message\": \"user cannot be found\"}";
@@ -61,8 +62,8 @@ public class UserServiceImpl implements UserService {
 		return user;
 	}
 
-	private void sendToQueue(User user, String searchTerm) {
-		SearchLog accountToStore = new SearchLog(user, searchTerm);
+	private void sendToQueue(User user, String searchTerm, Date date) {
+		SearchLog accountToStore = new SearchLog(user, searchTerm, date);
 		jmsTemplate.convertAndSend("UserQueue", accountToStore);
 	}
 
