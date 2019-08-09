@@ -8,17 +8,17 @@ public class SearchLog {
 
 	private int memberNumber;
 
-	private String searchResult;
+	private String searchTerm;
 
 	public SearchLog() {
 
 	}
 
-	public SearchLog(User user, String searchResult) {
+	public SearchLog(User user, String searchTerm) {
 		this.id = user.getId();
 		this.name = user.getName();
 		this.memberNumber = user.getMemberNumber();
-		this.searchResult = searchResult;
+		this.searchTerm = searchTerm;
 	}
 
 	public long getId() {
@@ -45,12 +45,12 @@ public class SearchLog {
 		this.memberNumber = memberNumber;
 	}
 
-	public String getSearchResult() {
-		return searchResult;
+	public String getSearchTerm() {
+		return searchTerm;
 	}
 
-	public void setSearchResult(String searchResult) {
-		this.searchResult = searchResult;
+	public void setSearchResult(String searchTerm) {
+		this.searchTerm = searchTerm;
 	}
 
 }
